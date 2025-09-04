@@ -1,0 +1,174 @@
+/* ===== Base Styles ===== */
+
+/* Set the font for the entire dashboard */
+body {
+  font-family: 'Roboto', sans-serif;
+  background-color: #fff;
+  color: #333;
+}
+
+h2 {
+  font-size: 24px !important;
+  font-weight: 600 !important;
+  color: #253471 !important;
+  padding-bottom: 60px !important;
+  padding-top: 40px !important;
+}
+
+/* Style card headers */
+.card-header {
+  background-color: #F4F4F4 !important;
+  color: #253471 !important;
+  font-weight: bold;
+}
+
+/* Customize dropdowns (pickerInput) */
+.picker-input {
+  font-size: 16px !important;
+  color: #333 !important;
+}
+
+/* Style tables */
+table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+th, td {
+  padding: 10px;
+  border: 1px solid #ddd;
+}
+
+th {
+  background-color: #007BFF;
+  color: white;
+}
+
+.legend text {
+  font-size: 16px !important;
+}
+
+/* --- Fullscreen Button --- */
+bslib-tooltip button.bslib-full-screen-enter {
+  visibility: visible !important;
+  opacity: 1 !important;
+  background-color: #253471 !important;
+  border-radius: 5% !important;
+  width: 70px !important;
+  height: 30px !important;
+  display: flex !important;
+  justify-content: center !important;
+  align-items: center !important;
+  padding: 0 !important;
+  position: absolute !important;
+  bottom: 15px !important;
+  right: 30px !important;
+  left: auto !important;
+}
+
+bslib-tooltip button.bslib-full-screen-enter svg {
+  fill: white !important;
+  height: 1.2em !important;
+  width: 1.2em !important;
+}
+
+bslib-tooltip button.bslib-full-screen-enter:hover {
+  transform: scale(1.2);
+  cursor: pointer;
+  filter: brightness(1.1);
+}
+
+/* Add bottom margin to all plot outputs */
+.shiny-plot-output {
+  margin-bottom: 45px !important;
+}
+
+/* ===== Mobile Responsive ===== */
+@media (max-width: 768px) {
+  .bslib-layout-column, .layout-columns {
+    flex-direction: column !important;
+    width: 100% !important;
+  }
+
+  .shiny-plot-output {
+    width: 100% !important;
+    height: auto !important;
+  }
+
+  h2 {
+    font-size: 20px !important;
+    padding-top: 20px !important;
+    padding-bottom: 20px !important;
+  }
+
+  .card {
+    margin-bottom: 20px !important;
+    padding: 10px !important;
+  }
+
+  .ggplot .strip text {
+    font-size: 12px !important;
+  }
+
+  table {
+    font-size: 14px !important;
+    display: block;
+    overflow-x: auto;
+    white-space: nowrap;
+  }
+}
+
+/* Device visibility helpers */
+@media (max-width: 768px) {
+  .desktop-only { display: none !important; }
+  .mobile-only { display: block !important; }
+}
+
+@media (min-width: 769px) {
+  .desktop-only { display: block !important; }
+  .mobile-only { display: none !important; }
+}
+
+@media (max-width: 768px) {
+  /* Ensure picker containers don't create extra space */
+  .card .picker-input,
+  .card .bootstrap-select {
+    margin-bottom: 10px !important;
+  }
+
+  /* Fix dropdown container height expansion issue */
+  .card .bootstrap-select,
+  .card .dropdown-toggle {
+    height: auto !important;
+  }
+
+  /* Prevent ghost space from absolutely positioned dropdowns */
+  .dropdown-menu {
+    position: absolute !important;
+  }
+}
+
+/* Hide tablet by default */
+.tablet-only {
+  display: none !important;
+}
+
+/* Mobile: ≤768px */
+@media (max-width: 768px) {
+  .desktop-only, .tablet-only { display: none !important; }
+  .mobile-only { display: block !important; }
+}
+
+/* Tablet: 769–1199px */
+@media (min-width: 769px) and (max-width: 1199px) {
+  .desktop-only, .mobile-only { display: none !important; }
+  .tablet-only { display: block !important; }
+}
+
+/* Desktop: ≥1200px */
+@media (min-width: 1200px) {
+  .tablet-only, .mobile-only { display: none !important; }
+  .desktop-only { display: block !important; }
+}
+
+
