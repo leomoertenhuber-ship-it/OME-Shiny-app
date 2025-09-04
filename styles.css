@@ -1,6 +1,31 @@
-/* ===== Base Styles ===== */
+/* Add the new CSS below this line */
 
-/* Set the font for the entire dashboard */
+.jump-buttons-container {
+  display: flex;
+  justify-content: space-around;
+  margin-top: 15px;
+  margin-bottom: 15px;
+}
+
+.jump-button {
+  background-color: #253471;
+  color: white;
+  padding: 10px 15px;
+  border-radius: 5px;
+  text-decoration: none;
+  font-weight: bold;
+  font-size: 16px;
+  text-align: center;
+  flex-grow: 1;
+  margin: 0 5px;
+}
+
+.jump-button:hover {
+  filter: brightness(1.2);
+}
+
+/* Add any existing styles back below */
+/* ===== Base Styles ===== */
 body {
   font-family: 'Roboto', sans-serif;
   background-color: #fff;
@@ -83,53 +108,35 @@ bslib-tooltip button.bslib-full-screen-enter:hover {
   margin-bottom: 45px !important;
 }
 
-/* ===== Mobile Responsive ===== */
-@media (max-width: 768px) {
-  .bslib-layout-column, .layout-columns {
-    flex-direction: column !important;
-    width: 100% !important;
-  }
-
-  .shiny-plot-output {
-    width: 100% !important;
-    height: auto !important;
-  }
-
-  h2 {
-    font-size: 20px !important;
-    padding-top: 20px !important;
-    padding-bottom: 20px !important;
-  }
-
-  .card {
-    margin-bottom: 20px !important;
-    padding: 10px !important;
-  }
-
-  .ggplot .strip text {
-    font-size: 12px !important;
-  }
-
-  table {
-    font-size: 14px !important;
-    display: block;
-    overflow-x: auto;
-    white-space: nowrap;
-  }
-}
-
 /* Device visibility helpers */
-@media (max-width: 768px) {
-  .desktop-only { display: none !important; }
-  .mobile-only { display: block !important; }
+.desktop-and-tablet-only {
+    display: none !important;
 }
 
-@media (min-width: 769px) {
-  .desktop-only { display: block !important; }
-  .mobile-only { display: none !important; }
+.tablet-and-mobile-only {
+  display: none !important;
 }
 
+.mobile-only {
+    display: none !important;
+}
+
+/* Mobile: ≤768px */
 @media (max-width: 768px) {
+    .mobile-only { display: block !important; }
+    .desktop-and-tablet-only { display: none !important; }
+    .tablet-and-mobile-only { display: block !important; }
+    .bslib-layout-column, .layout-columns {
+        flex-direction: column !important;
+        width: 100% !important;
+    }
+  
+    #main-layout > .bslib-layout-column,
+    #main-layout .bslib-layout-columns > .bslib-layout-column {
+      flex: 0 0 100% !important;
+      max-width: 100% !important;
+    }
+
   /* Ensure picker containers don't create extra space */
   .card .picker-input,
   .card .bootstrap-select {
@@ -148,27 +155,38 @@ bslib-tooltip button.bslib-full-screen-enter:hover {
   }
 }
 
-/* Hide tablet by default */
-.tablet-only {
-  display: none !important;
-}
-
-/* Mobile: ≤768px */
-@media (max-width: 768px) {
-  .desktop-only, .tablet-only { display: none !important; }
-  .mobile-only { display: block !important; }
-}
-
 /* Tablet: 769–1199px */
 @media (min-width: 769px) and (max-width: 1199px) {
-  .desktop-only, .mobile-only { display: none !important; }
-  .tablet-only { display: block !important; }
+    .mobile-only { display: none !important; }
+    .desktop-and-tablet-only { display: block !important; }
+    .tablet-and-mobile-only { display: block !important; }
+    #main-layout > .bslib-layout-column, .layout-columns {
+        flex-direction: column !important;
+        width: 100% !important;
+    }
+
+    /* New, more specific rules to force columns to stack on tablets */
+    #main-layout > .bslib-layout-columns,
+    #main-layout .bslib-layout-columns > .bslib-layout-column {
+      flex-direction: column !important;
+      flex: 0 0 100% !important;
+      max-width: 100% !important;
+    }
+
+    #main-layout > .bslib-layout-column {
+      flex: 0 0 100% !important;
+      max-width: 100% !important;
+    }
+
 }
 
 /* Desktop: ≥1200px */
 @media (min-width: 1200px) {
-  .tablet-only, .mobile-only { display: none !important; }
-  .desktop-only { display: block !important; }
+    .mobile-only { display: none !important; }
+    .desktop-and-tablet-only { display: block !important; }
+    .tablet-and-mobile-only { display: none !important; }
+    .bslib-layout-column, .layout-columns {
+      flex-direction: row !important;
+      width: 100% !important;
+    }
 }
-
-
