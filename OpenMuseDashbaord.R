@@ -50,7 +50,7 @@ ui <- page_fillable(
   ),
   
   layout_columns(
-    id = "main-layout",
+    
     layout_columns(
       
       card(
@@ -75,8 +75,8 @@ ui <- page_fillable(
         )
       ),
       
-      # Add the jump buttons for mobile and tablet
-      div(class = "tablet-and-mobile-only jump-buttons-container",
+      # Add the jump buttons for mobile
+      div(class = "mobile-only jump-buttons-container",
           tags$a(href = "#audience_plots_section", class = "jump-button", "Audience Data"),
           tags$a(href = "#venue_plots_section", class = "jump-button", "Venue Data")
       ),
@@ -90,7 +90,7 @@ ui <- page_fillable(
           
           titlePanel("Gender distribution"),
           
-          div(class = "desktop-and-tablet-only", plotOutput("Gender", width = "150%", height = "400px")),
+          div(class = "desktop-only", plotOutput("Gender", width = "150%", height = "400px")),
           div(class = "mobile-only", tableOutput("Gender_table"))
         ),
         
@@ -98,7 +98,7 @@ ui <- page_fillable(
           
           titlePanel("Age distribution"),
           
-          div(class = "desktop-and-tablet-only", plotOutput("Age", width = "100%")),
+          div(class = "desktop-only", plotOutput("Age", width = "100%")),
           div(class = "mobile-only", tableOutput("Age_table"))
         ),
         
@@ -106,7 +106,7 @@ ui <- page_fillable(
           
           titlePanel("Do you live in the city area?"),
           
-          div(class = "desktop-and-tablet-only", plotOutput("CityArea", width = "150%", height = "400px")),
+          div(class = "desktop-only", plotOutput("CityArea", width = "150%", height = "400px")),
           div(class = "mobile-only", tableOutput("CityArea_table"))
         ),
         
@@ -115,7 +115,7 @@ ui <- page_fillable(
           titlePanel("Total spending"),
           
           tableOutput("Spending_table"),
-          div(class = "desktop-and-tablet-only", plotOutput("Spending", width = "150%")),
+          div(class = "desktop-only", plotOutput("Spending", width = "150%")),
           div(class = "mobile-only", tableOutput("Spending_on_table"))
         ),
         
@@ -130,7 +130,7 @@ ui <- page_fillable(
         mainPanel(
           
           tableOutput("Spending_on_table"),
-          div(class = "desktop-and-tablet-only", plotOutput("Spending_on", width = "150%")),
+          div(class = "desktop-only", plotOutput("Spending_on", width = "150%")),
           div(class = "mobile-only", tableOutput("Spending_on_table"))
         ),
         
@@ -138,7 +138,7 @@ ui <- page_fillable(
           
           titlePanel("Will you / did you eat at restaurants?"),
           
-          div(class = "desktop-and-tablet-only", plotOutput("Restaurant", width = "150%", height = "400px")),
+          div(class = "desktop-only", plotOutput("Restaurant", width = "150%", height = "400px")),
           div(class = "mobile-only", tableOutput("Restaurant_table"))
         ),
         
@@ -146,7 +146,7 @@ ui <- page_fillable(
           
           titlePanel("How will you / did you get home?"),
           
-          div(class = "desktop-and-tablet-only", plotOutput("Transport", width = "150%")),
+          div(class = "desktop-only", plotOutput("Transport", width = "150%")),
           div(class = "mobile-only", tableOutput("Transport_table"))
         ),
         
@@ -154,7 +154,7 @@ ui <- page_fillable(
           
           titlePanel("How was your night?"),
           
-          div(class = "desktop-and-tablet-only", plotOutput("Night", width = "150%", height = "400px")),
+          div(class = "desktop-only", plotOutput("Night", width = "150%", height = "400px")),
           div(class = "mobile-only", tableOutput("Night_table"))
         ),
         
@@ -162,7 +162,7 @@ ui <- page_fillable(
           
           titlePanel("How would you rate the live music scene in your city?"),
           
-          div(class = "desktop-and-tablet-only", plotOutput("Scene", width = "150%", height = "400px")),
+          div(class = "desktop-only", plotOutput("Scene", width = "150%", height = "400px")),
           div(class = "mobile-only", tableOutput("Scene_table"))
         ),
         
@@ -170,7 +170,7 @@ ui <- page_fillable(
           
           titlePanel("What kinds of music do you most often go to see live?"),
           
-          div(class = "desktop-and-tablet-only", plotOutput("MusicType", width = "150%")),
+          div(class = "desktop-only", plotOutput("MusicType", width = "150%")),
           div(class = "mobile-only", tableOutput("MusicType_table"))
         ),
         
@@ -178,7 +178,7 @@ ui <- page_fillable(
           
           titlePanel("How many live music events do you attend per month, on average"),
           
-          div(class = "desktop-and-tablet-only", plotOutput("Attend", width = "150%", height = "400px")),
+          div(class = "desktop-only", plotOutput("Attend", width = "150%", height = "400px")),
           div(class = "mobile-only", tableOutput("Attend_table"))
         ),
         
@@ -186,7 +186,7 @@ ui <- page_fillable(
           
           titlePanel("What size of venue you most enjoy seeing live music?"),
           
-          div(class = "desktop-and-tablet-only", plotOutput("VenueSize", width = "150%", height = "400px")),
+          div(class = "desktop-only", plotOutput("VenueSize", width = "150%", height = "400px")),
           div(class = "mobile-only", tableOutput("VenueSize_table"))
         ),
         
@@ -194,7 +194,7 @@ ui <- page_fillable(
           
           titlePanel("What has prevented from seeing live music events more often"),
           
-          div(class = "desktop-and-tablet-only", plotOutput("Prevent", width = "150%")),
+          div(class = "desktop-only", plotOutput("Prevent", width = "150%")),
           div(class = "mobile-only", tableOutput("Prevent_table"))
         ),
         
@@ -202,7 +202,7 @@ ui <- page_fillable(
           
           titlePanel("Which of the following would encourage you to see more live music?"),
           
-          div(class = "desktop-and-tablet-only", plotOutput("Encourage", width = "150%")),
+          div(class = "desktop-only", plotOutput("Encourage", width = "150%")),
           div(class = "mobile-only", tableOutput("Encourage_table"))
         ),
         
@@ -210,7 +210,7 @@ ui <- page_fillable(
           
           titlePanel("Do you agree with the following statement?"),
           
-          div(class = "desktop-and-tablet-only", plotOutput("Statement", width = "150%", height = "600px")),
+          div(class = "desktop-only", plotOutput("Statement", width = "150%", height = "600px")),
           div(class = "mobile-only", tableOutput("Statement_table"))
         ),
       ),
@@ -233,7 +233,7 @@ ui <- page_fillable(
           
           titlePanel("On which days is the venue open?"),
           
-          div(class = "desktop-and-tablet-only", plotOutput("Operation_days", width = "100%")),
+          div(class = "desktop-only", plotOutput("Operation_days", width = "100%")),
           div(class = "mobile-only", tableOutput("Operation_days_table"))
         ),
         
@@ -241,7 +241,7 @@ ui <- page_fillable(
           
           titlePanel("Is your venue negatively affected by?"),
           
-          div(class = "desktop-and-tablet-only", plotOutput("Negative_effects", width = "150%", height = "500px")),
+          div(class = "desktop-only", plotOutput("Negative_effects", width = "150%", height = "500px")),
           div(class = "mobile-only", tableOutput("Negative_effects_table"))
         ),
         
@@ -249,7 +249,7 @@ ui <- page_fillable(
           
           titlePanel("Music venues and festivals have a responsibility \n to become environmentally friendly"),
           
-          div(class = "desktop-and-tablet-only", plotOutput("Envi_friendly", width = "150%", height = "400px")),
+          div(class = "desktop-only", plotOutput("Envi_friendly", width = "150%", height = "400px")),
           div(class = "mobile-only", tableOutput("Envi_friendly_table"))
         ),
         
@@ -257,7 +257,7 @@ ui <- page_fillable(
           
           titlePanel("The live music scene in my city has discrimination problems"),
           
-          div(class = "desktop-and-tablet-only", plotOutput("Discri_prob", width = "150%", height = "400px")),
+          div(class = "desktop-only", plotOutput("Discri_prob", width = "150%", height = "400px")),
           div(class = "mobile-only", tableOutput("Discri_prob_table"))
         ),
         
@@ -265,7 +265,7 @@ ui <- page_fillable(
           
           titlePanel("The live music scene in my city has corruption problems"),
           
-          div(class = "desktop-and-tablet-only", plotOutput("Corrupt_prob", width = "150%", height = "400px")),
+          div(class = "desktop-only", plotOutput("Corrupt_prob", width = "150%", height = "400px")),
           div(class = "mobile-only", tableOutput("Corrupt_prob_table"))
         ),
         
@@ -273,7 +273,7 @@ ui <- page_fillable(
           
           titlePanel("Are you optimistic about the future of your venue?"),
           
-          div(class = "desktop-and-tablet-only", plotOutput("Optimistic", width = "150%", height = "400px")),
+          div(class = "desktop-only", plotOutput("Optimistic", width = "150%", height = "400px")),
           div(class = "mobile-only", tableOutput("Optimistic_table"))
         ),
         
